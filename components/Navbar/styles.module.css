@@ -1,7 +1,11 @@
 .baseHeader {
+  height: 50px;
+}
+.fixedTop {
   position: fixed;
   width: 100%;
   top: 0;
+  background-color: #1c1c1c;
 }
 
 .baseNav {

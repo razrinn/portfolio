@@ -7,7 +7,9 @@ export default function Project() {
         <title>Project | razrinn</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>Halo</h1>
+      <div style={{ minHeight: "150vh" }}>
+        <h1>Halo</h1>
+      </div>
     </div>
   );
 }

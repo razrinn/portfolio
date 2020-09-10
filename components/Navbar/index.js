@@ -27,35 +27,37 @@ const Navbar = () => {
     }
   }, []);
   return (
-    <div className={classes.baseHeader}>
-      <nav className={classes.baseNav}>
-        <div className={classes.markerParent}>
-          <div
-            className={classes.marker}
-            style={{ left: offset.left, width: offset.width }}
-          ></div>
-          {NAV_LINK.map((link, idx) => (
-            <Link key={idx} href={link.to}>
-              <a
-                onClick={(e) =>
-                  setOffset({
-                    left: e.currentTarget.offsetLeft,
-                    width: e.currentTarget.offsetWidth,
-                  })
-                }
-                ref={router.pathname == link.to ? currentRef : null}
-                className={cn({
-                  [classes.navLink]: true,
-                  [classes.active]: router.pathname == link.to,
-                })}
-              >
-                {link.name}
-              </a>
-            </Link>
-          ))}
-        </div>
-      </nav>
-    </div>
+    <header className={classes.baseHeader}>
+      <div className={classes.fixedTop}>
+        <nav className={classes.baseNav}>
+          <div className={classes.markerParent}>
+            <div
+              className={classes.marker}
+              style={{ left: offset.left, width: offset.width }}
+            ></div>
+            {NAV_LINK.map((link, idx) => (
+              <Link key={idx} href={link.to}>
+                <a
+                  onClick={(e) =>
+                    setOffset({
+                      left: e.currentTarget.offsetLeft,
+                      width: e.currentTarget.offsetWidth,
+                    })
+                  }
+                  ref={router.pathname == link.to ? currentRef : null}
+                  className={cn({
+                    [classes.navLink]: true,
+                    [classes.active]: router.pathname == link.to,
+                  })}
+                >
+                  {link.name}
+                </a>
+              </Link>
+            ))}
+          </div>
+        </nav>
+      </div>
+    </header>
   );
 };
 
