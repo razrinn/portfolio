@@ -1,10 +1,10 @@
 import Head from "next/head";
 
-export default function Home() {
+export default function Blog() {
   return (
     <div>
       <Head>
-        <title>Ray Azrin Karim | razrinn</title>
+        <title>Blog | razrinn</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1>Halo</h1>
