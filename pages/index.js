@@ -6,6 +6,11 @@ export default function Home() {
       <Head>
         <title>Ray Azrin Karim | razrinn</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="title" content="Ray Azrin Karim | razrinn" />
+        <meta
+          name="description"
+          content="Ray Azrin Karim is a student that loves to learn about technology and software engineering. He did many job and freelance project in web development. Feel free to email him if you need any help!"
+        />
       </Head>
       <div className="container">
         <div>

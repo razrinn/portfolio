@@ -2,6 +2,8 @@ import Head from "next/head";
 import { initializeApollo } from "libs/apolloClient";
 import { gql, useQuery, NetworkStatus } from "@apollo/client";
 
+import { Project } from "components";
+
 export const ALL_PROJECT_QUERY = gql`
   {
     projects {
@@ -16,17 +18,18 @@ export const ALL_PROJECT_QUERY = gql`
             }
             isOngoing
             isPrivate
-            responsibilites
+            responsibilities
             startTime
             endTime
             url
+            stack
           }
         }
       }
     }
   }
 `;
-export default function Project(props) {
+export default function ProjectPage(props) {
   const { loading, error, data, fetchMore, networkStatus } = useQuery(
     ALL_PROJECT_QUERY,
     {
@@ -46,14 +49,17 @@ export default function Project(props) {
       </Head>
       <div style={{ minHeight: "150vh" }}>
         {projects.map(({ node: project }, idx) => (
-          <div key={idx}>
-            <h1 style={{ color: "#ffffff" }}>{project.title}</h1>
-            <img
-              src={project.projectDetail.image.sourceUrl}
-              alt={project.projectDetail.image.altText}
-              style={{ width: "100%" }}
-            />
-          </div>
+          <Project
+            key={idx}
+            title={project.title}
+            image={project.projectDetail.image}
+            startTime={project.projectDetail.startTime}
+            endTime={project.projectDetail.endTime}
+            description={project.projectDetail.description}
+            responsibility={project.projectDetail.responsibilities}
+            stack={project.projectDetail.stack}
+            url={project.projectDetail.url}
+          />
         ))}
       </div>
     </div>
