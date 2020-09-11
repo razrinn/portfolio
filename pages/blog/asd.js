@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
 
 export default function Blog() {
   return (
@@ -8,10 +7,7 @@ export default function Blog() {
         <title>Blog | razrinn</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <p style={{ textAlign: "center", color: "white" }}>No post yet</p>
-      <Link href="/blog/asd">
-        <a>Go to ASD page</a>
-      </Link>
+      <p style={{ textAlign: "center", color: "white" }}>ASd</p>
     </div>
   );
 }

@@ -2,10 +2,12 @@
   height: 50px;
 }
 .fixedTop {
+  background-color: #1c1c1c;
   position: fixed;
   width: 100%;
   top: 0;
-  background-color: #1c1c1c;
+  z-index: 1;
+  padding-bottom: 24px;
 }
 
 .baseNav {

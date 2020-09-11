@@ -4,6 +4,7 @@ import cn from "classnames";
 
 import classes from "./styles.module.css";
 import { useState, useRef, useEffect } from "react";
+import { route } from "next/dist/next-server/server/router";
 
 const Navbar = () => {
   const router = useRouter();
@@ -26,6 +27,13 @@ const Navbar = () => {
       });
     }
   }, []);
+  const routeStartsWith = (path) => {
+    if (path == "/") {
+      return router.pathname == path;
+    } else {
+      return router.pathname.startsWith(path);
+    }
+  };
   return (
     <header className={classes.baseHeader}>
       <div className={classes.fixedTop}>
@@ -44,10 +52,10 @@ const Navbar = () => {
                       width: e.currentTarget.offsetWidth,
                     })
                   }
-                  ref={router.pathname == link.to ? currentRef : null}
+                  ref={routeStartsWith(link.to) ? currentRef : null}
                   className={cn({
                     [classes.navLink]: true,
-                    [classes.active]: router.pathname == link.to,
+                    [classes.active]: routeStartsWith(link.to),
                   })}
                 >
                   {link.name}
