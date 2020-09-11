@@ -66,6 +66,12 @@ const Project = ({
           height: 300px;
           text-align: right;
         }
+        @media only screen and (max-width: 768px) {
+          .projectImage {
+            height: auto;
+            width: 100%;
+          }
+        }
         .projectDescription {
           color: #ffffff;
           font-family: "Work sans";
