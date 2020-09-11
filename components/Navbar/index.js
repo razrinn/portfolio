@@ -1,10 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import cn from "classnames";
-
-import classes from "./styles.module.css";
 import { useState, useRef, useEffect } from "react";
-import { route } from "next/dist/next-server/server/router";
 
 const Navbar = () => {
   const router = useRouter();
@@ -35,12 +32,12 @@ const Navbar = () => {
     }
   };
   return (
-    <header className={classes.baseHeader}>
-      <div className={classes.fixedTop}>
-        <nav className={classes.baseNav}>
-          <div className={classes.markerParent}>
+    <header className="baseHeader">
+      <div className="fixedTop">
+        <nav className="baseNav">
+          <div className="markerParent">
             <div
-              className={classes.marker}
+              className="marker"
               style={{ left: offset.left, width: offset.width }}
             ></div>
             {NAV_LINK.map((link, idx) => (
@@ -54,8 +51,8 @@ const Navbar = () => {
                   }
                   ref={routeStartsWith(link.to) ? currentRef : null}
                   className={cn({
-                    [classes.navLink]: true,
-                    [classes.active]: routeStartsWith(link.to),
+                    navLink: true,
+                    active: routeStartsWith(link.to),
                   })}
                 >
                   {link.name}
@@ -65,6 +62,59 @@ const Navbar = () => {
           </div>
         </nav>
       </div>
+      <style jsx>{`
+        .baseHeader {
+          height: 50px;
+        }
+        .fixedTop {
+          background-color: #1c1c1c;
+          position: fixed;
+          width: 100%;
+          top: 0;
+          z-index: 1;
+          padding-bottom: 24px;
+        }
+
+        .baseNav {
+          position: relative;
+          display: flex;
+          justify-content: center;
+        }
+
+        .markerParent {
+          padding-top: 24px;
+          position: relative;
+        }
+
+        .marker {
+          position: absolute;
+          height: 4px;
+          width: 100%;
+          background-color: #ffffff;
+          top: 0px;
+          left: 0;
+          transition: 0.3s ease-out;
+        }
+
+        .navLink {
+          color: #a1a1a1;
+          transition: 0.3s;
+        }
+
+        .navLink:hover {
+          color: #ffffff;
+          font-weight: bold;
+        }
+
+        .navLink:not(:last-child) {
+          margin-right: 32px;
+        }
+
+        .active {
+          color: #ffffff;
+          font-weight: bold;
+        }
+      `}</style>
     </header>
   );
 };
