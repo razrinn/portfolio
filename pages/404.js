@@ -8,7 +8,7 @@ export default function Project() {
         <title>404 Page not found | razrinn</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={classes.notFoundContainer}>
+      <div className="notFoundContainer">
         <h1>Nothing to see here</h1>
         <p>
           <Link href="/">
