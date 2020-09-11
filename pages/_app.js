@@ -1,14 +1,12 @@
 import "styles/normalize.css";
 import "styles/globals.css";
-import { Navbar, Footer } from "components";
+import { Layout } from "components";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
   return (
-    <>
-      <Navbar />
-      <Component {...pageProps} />
-      <Footer />
-    </>
+    <Layout>
+      <Component {...pageProps} key={router.route} />
+    </Layout>
   );
 }
 

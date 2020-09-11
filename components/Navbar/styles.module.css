@@ -31,6 +31,7 @@
 
 .navLink {
   color: #a1a1a1;
+  transition: 0.3s;
 }
 
 .navLink:hover {
