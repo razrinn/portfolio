@@ -13,12 +13,13 @@ const BlogList = () => {
   if (error) return <p>ada error</p>;
   if (loading && !loadingMorePosts) return <div>Loading</div>;
   const posts = data.posts.edges;
+  console.log(posts);
   return (
     <div className="baseContainer">
       {posts.length == 0 && <p className="blogEmpty">No post yet</p>}
       {posts.map(({ node: blog }, idx) => (
         <div key={idx} className="baseSingleBlog">
-          <Link href={`/blog/${blog.slug}`}>
+          <Link href="/blog/[slug]" as={`/blog/${blog.slug}`}>
             <a>
               <h2 className="blogTitle">{blog.title}</h2>
             </a>

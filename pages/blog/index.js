@@ -9,7 +9,6 @@ export default function Blog() {
     <div>
       <Head>
         <title>Blog | razrinn</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <BlogList />
     </div>
