@@ -1,5 +1,8 @@
 import Head from "next/head";
 import Link from "next/link";
+import { BlogList } from "components";
+import { ALL_POST_QUERY } from "queries/blog";
+import { initializeApollo } from "libs/apolloClient";
 
 export default function Blog() {
   return (
@@ -8,10 +11,22 @@ export default function Blog() {
         <title>Blog | razrinn</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <p style={{ textAlign: "center", color: "white" }}>No post yet</p>
-      <Link href="/blog/asd">
-        <a>Go to ASD page</a>
-      </Link>
+      <BlogList />
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const apolloClient = initializeApollo();
+
+  await apolloClient.query({
+    query: ALL_POST_QUERY,
+  });
+
+  return {
+    props: {
+      initialApolloState: apolloClient.cache.extract(),
+    },
+    revalidate: 1,
+  };
 }

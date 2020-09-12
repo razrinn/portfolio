@@ -4,3 +4,5 @@ export { default as Layout } from "./Layout";
 export { default as Transition } from "./Transition";
 export { default as Project } from "./Project";
 export { default as DateString } from "./DateString";
+export { default as ProjectList } from "./ProjectList";
+export { default as BlogList } from "./BlogList";

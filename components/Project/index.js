@@ -18,9 +18,13 @@ const Project = ({
     <div className="baseProject">
       <h2 className="projectTitle">{title}</h2>
       <p className="projectDate">
-        <DateString dateString={startTime} />
+        <DateString dateString={startTime} parseType="custom" />
         {" - "}
-        {isOngoing ? "Present" : <DateString dateString={endTime} />}
+        {isOngoing ? (
+          "Present"
+        ) : (
+          <DateString dateString={endTime} parseType="custom" />
+        )}
       </p>
       <img src={image.sourceUrl} alt={image.altText} className="projectImage" />
       <p className="projectDescription">{description}</p>

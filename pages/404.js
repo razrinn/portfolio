@@ -6,7 +6,6 @@ export default function Project() {
     <div>
       <Head>
         <title>404 Page not found | razrinn</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="notFoundContainer">
         <h1>Nothing to see here</h1>

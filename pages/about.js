@@ -5,60 +5,35 @@ export default function About() {
     <div>
       <Head>
         <title>About | razrinn</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
-      <p style={{ color: "#ffffff" }}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quis,
-        rem ad doloribus molestiae modi facilis. Delectus officia commodi iste
-        sequi, asperiores facere dolores temporibus ipsa animi consectetur totam
-        error aliquam. Dolor sint voluptatem ipsa corporis sit corrupti tempore
-        delectus eius mollitia laborum soluta in reprehenderit eum officia
-        reiciendis harum, explicabo ipsum. Modi autem quidem error numquam
-        inventore voluptatem quibusdam, nesciunt molestiae iste exercitationem
-        tempora aperiam veniam aliquid iusto quam? Nam molestiae atque tempora
-        voluptas, adipisci numquam. Accusamus corrupti in impedit nesciunt sunt.
-        Aliquam iure optio doloribus laborum magnam temporibus, voluptas officia
-        hic voluptatum eaque quasi illum tempora dolorum iusto.
-      </p>
-      <p style={{ color: "#ffffff" }}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quis,
-        rem ad doloribus molestiae modi facilis. Delectus officia commodi iste
-        sequi, asperiores facere dolores temporibus ipsa animi consectetur totam
-        error aliquam. Dolor sint voluptatem ipsa corporis sit corrupti tempore
-        delectus eius mollitia laborum soluta in reprehenderit eum officia
-        reiciendis harum, explicabo ipsum. Modi autem quidem error numquam
-        inventore voluptatem quibusdam, nesciunt molestiae iste exercitationem
-        tempora aperiam veniam aliquid iusto quam? Nam molestiae atque tempora
-        voluptas, adipisci numquam. Accusamus corrupti in impedit nesciunt sunt.
-        Aliquam iure optio doloribus laborum magnam temporibus, voluptas officia
-        hic voluptatum eaque quasi illum tempora dolorum iusto.
-      </p>
-      <p style={{ color: "#ffffff" }}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quis,
-        rem ad doloribus molestiae modi facilis. Delectus officia commodi iste
-        sequi, asperiores facere dolores temporibus ipsa animi consectetur totam
-        error aliquam. Dolor sint voluptatem ipsa corporis sit corrupti tempore
-        delectus eius mollitia laborum soluta in reprehenderit eum officia
-        reiciendis harum, explicabo ipsum. Modi autem quidem error numquam
-        inventore voluptatem quibusdam, nesciunt molestiae iste exercitationem
-        tempora aperiam veniam aliquid iusto quam? Nam molestiae atque tempora
-        voluptas, adipisci numquam. Accusamus corrupti in impedit nesciunt sunt.
-        Aliquam iure optio doloribus laborum magnam temporibus, voluptas officia
-        hic voluptatum eaque quasi illum tempora dolorum iusto.
-      </p>
-      <p style={{ color: "#ffffff" }}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quis,
-        rem ad doloribus molestiae modi facilis. Delectus officia commodi iste
-        sequi, asperiores facere dolores temporibus ipsa animi consectetur totam
-        error aliquam. Dolor sint voluptatem ipsa corporis sit corrupti tempore
-        delectus eius mollitia laborum soluta in reprehenderit eum officia
-        reiciendis harum, explicabo ipsum. Modi autem quidem error numquam
-        inventore voluptatem quibusdam, nesciunt molestiae iste exercitationem
-        tempora aperiam veniam aliquid iusto quam? Nam molestiae atque tempora
-        voluptas, adipisci numquam. Accusamus corrupti in impedit nesciunt sunt.
-        Aliquam iure optio doloribus laborum magnam temporibus, voluptas officia
-        hic voluptatum eaque quasi illum tempora dolorum iusto.
-      </p>
+      <div className="aboutContainer">
+        <div>
+          <p>
+            Hello, my name is Ray Azrin Karim. I'm an Information System student
+            from Universitas Indonesia. I really like to explore things related
+            to front-end web development.
+          </p>
+          <p>
+            I have a couple of work experience in the field and also has a
+            number of side projects to showcase my skills. Feel free to contact
+            me if you or your team is interested to work with me. Most of the
+            time I always open for such deals. :)
+          </p>
+        </div>
+      </div>
+      <style jsx>
+        {`
+          .aboutContainer {
+            min-height: calc(100vh - 120px);
+            display: flex;
+            align-items: center;
+          }
+
+          p {
+            color: #ffffff;
+          }
+        `}
+      </style>
     </div>
   );
 }
