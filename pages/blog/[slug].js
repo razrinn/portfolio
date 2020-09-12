@@ -1,11 +1,29 @@
+import { NetworkStatus, useQuery } from "@apollo/client";
 import { DateString } from "components";
 import { initializeApollo } from "libs/apolloClient";
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { ALL_POST_SLUG, SINGLE_POST_BY_SLUG } from "queries/blog";
 import React from "react";
 
-const SingleBlog = ({ postData }) => {
+const SingleBlog = (props) => {
+  const { query } = useRouter();
+  const { loading, error, data, networkStatus } = useQuery(
+    SINGLE_POST_BY_SLUG,
+    {
+      variables: {
+        slug: query.slug,
+      },
+      notifyOnNetworkStatusChange: true,
+    }
+  );
+  const loadingMorePosts = networkStatus === NetworkStatus.fetchMore;
+
+  // Client-side data fetching
+  if (error) return <p>ada error</p>;
+  if (loading && !loadingMorePosts) return <div>Loading</div>;
+  const postData = data.post;
   return (
     <div className="baseBlog">
       <Head>
@@ -86,15 +104,16 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   // Fetch necessary data for the blog post using params.id
   const apolloClient = initializeApollo();
-  const { data } = await apolloClient.query({
+  await apolloClient.query({
     query: SINGLE_POST_BY_SLUG,
     variables: {
       slug: params.slug,
     },
   });
+
   return {
     props: {
-      postData: data.post,
+      initialApolloState: apolloClient.cache.extract(),
     },
     revalidate: 1,
   };
