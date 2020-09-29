@@ -14,6 +14,7 @@ const Project = ({
   isPrivate,
   stack,
 }) => {
+  console.log(isOngoing);
   return (
     <div className="baseProject">
       <h2 className="projectTitle">{title}</h2>

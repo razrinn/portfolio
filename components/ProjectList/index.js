@@ -25,6 +25,8 @@ const ProjectList = () => {
           responsibility={project.projectDetail.responsibilities}
           stack={project.projectDetail.stack}
           url={project.projectDetail.url}
+          isOngoing={project.projectDetail.isOngoing}
+          isPrivate={project.projectDetail.isPrivate}
         />
       ))}
     </div>
