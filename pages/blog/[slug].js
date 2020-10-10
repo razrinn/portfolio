@@ -8,7 +8,7 @@ import { ALL_POST_SLUG, SINGLE_POST_BY_SLUG } from "queries/blog";
 import React from "react";
 
 const SingleBlog = (props) => {
-  const { query } = useRouter();
+  const { query, isFallback } = useRouter();
   const { loading, error, data, networkStatus } = useQuery(
     SINGLE_POST_BY_SLUG,
     {
@@ -23,6 +23,8 @@ const SingleBlog = (props) => {
   // Client-side data fetching
   if (error) return <p>ada error</p>;
   if (loading && !loadingMorePosts) return <div>Loading</div>;
+  if (isFallback) return <div>Loading...</div>;
+
   const postData = data.post;
   return (
     <div className="baseBlog">
@@ -97,7 +99,7 @@ export async function getStaticPaths() {
   });
   return {
     paths: paths,
-    fallback: false,
+    fallback: true,
   };
 }
 
